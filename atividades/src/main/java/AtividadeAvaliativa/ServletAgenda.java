@@ -1,4 +1,4 @@
-package atividades;
+package AtividadeAvaliativa;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,9 +26,11 @@ public class ServletAgenda extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String nome = request.getParameter("nome");
 		String telefone = request.getParameter("telefone");
 		String nascimento = request.getParameter("nascimento");
+		
 		response.getWriter().append("O contato "+nome+", telefone "+telefone+" e nascimento "+nascimento+" foi incluído com sucesso!");
 	}
 }

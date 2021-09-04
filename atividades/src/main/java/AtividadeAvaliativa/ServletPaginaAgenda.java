@@ -1,4 +1,4 @@
-package atividades;
+package AtividadeAvaliativa;
 
 import java.io.IOException;
 import java.io.PrintWriter;
