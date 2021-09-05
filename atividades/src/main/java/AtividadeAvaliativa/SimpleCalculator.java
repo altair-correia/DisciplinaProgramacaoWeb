@@ -65,7 +65,11 @@ public class SimpleCalculator extends HttpServlet {
 		
 		soma = numeroConvertido1 + numeroConvertido2;
 		
-		saida.write("Soma = " + soma);
+		saida.write("A soma de "+ numeroConvertido1 +" e "+ numeroConvertido2 +" é igual a "+ soma);
+		
 	}
+	
+	
+	
 
 }
