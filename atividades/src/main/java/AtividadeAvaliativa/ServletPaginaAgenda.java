@@ -39,7 +39,7 @@ public class ServletPaginaAgenda extends HttpServlet {
 		saida.write("<input id=\"telefone\" type=\"text\">");
 		saida.write("<label for=\"dta_nascimento\">Data de Nascimento</label>");
 		saida.write("<input id=\"dta_nascimento\" type=\"text\">");
-		saida.write("<input type=\"submit\">");
+		saida.write("<input type=\"submit\" value=\"Enviar\">");
 		saida.write("</form>");
 		saida.write("</Body></HTML>");
 		saida.close();
