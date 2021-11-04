@@ -1,7 +1,7 @@
 package br.com.encontros.controller;
 
 import java.io.IOException;
-//import java.util.Date;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +13,16 @@ import br.com.encontros.model.Encontro;
 import br.com.encontros.model.SistemaEncontros;
 
 /**
- * Servlet implementation class ServeletControlador
+ * Servlet implementation class ServletControlador
  */
-@WebServlet("/ServeletControlador")
-public class ServeletControlador extends HttpServlet {
+@WebServlet("/ServletControlador")
+public class ServletControlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServeletControlador() {
+    public ServletControlador() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +52,7 @@ public class ServeletControlador extends HttpServlet {
 			e.setNomePessoa(request.getParameter("nomePessoa"));
 			e.setMotivo(request.getParameter("motivo"));
 			e.setLocal(request.getParameter("local"));
-			//e.setData(new Date());
+			e.setData(new Date());
 			
 			sistema.adicionar(e);
 			
