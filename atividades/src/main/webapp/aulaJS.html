@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Manipulação de Objetos em JavaScript</title>
+
+<script type="text/javascript" src="./scripts/script.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+function aumentar(posicao){
+	document.images[posicao].width=500;
+	document.images[posicao].height=500;
+}
+
+function diminuir(posicao){
+	document.images[posicao].width=400;
+	document.images[posicao].height=400;
+}
+</script>
+
+<script type="text/javascript">
+var contador = 0;
+
+function getValue() {
+	var cabecalho1 = document.getElementById("header1");
+	var cabecalho2 = document.getElementById("header2");
+	
+	//alert(cabecalho1.innerHTML);
+	
+	contador++;
+	
+	cabecalho2.innerHTML = "Cliques: "+ contador;
+}
+
+
+</script>
+</head>
+<body>
+<img alt="Imagem1" src="./imagens/receita_kibe.jpg" width="400" height="400" onmouseover="aumentar(0)" onmouseout="diminuir(0)">
+<!-- Pode-se usar outros fatores como 'name', 'id' e 'TagName' na tag <img>-->
+<img alt="Imagem2" src="./imagens/tela.jpg" width="400" height="400" onmouseover="aumentar(1)" onmouseout="diminuir(1)">
+
+<p> Número de Imagens:</p>
+<script type="text/javascript">
+
+var numeroImagens = document.images.length;
+document.write(numeroImagens);
+
+</script>
+
+<h1 id="header1" onclick="getValue()">Clique aqui!</h1>
+<h2 id="header2"></h2>
+
+
+</body>
+</html>
