@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Aula de Javascript</title>
+<script type="text/javascript">
+	function mudarEndereco(){
+		var link = document.getElementById("x");
+		link.href = "http://www.terra.com.br";
+	}
+	
+	function aumentar() {
+		var input = document.getElementById("textoCrescente");
+		var texto = input.value;
+		var tamanhoCampo = input.size;
+		var tamanhoTexto = texto.length;
+		
+		if (tamanhoTexto -1 >= tamanhoCampo) {
+			input.size = tamanhoCampo + 1;
+		}
+	}
+</script>
+</head>
+<body>
+<a id="x" href="http://www.uol.com.br" onclick="mudarEndereco()">Endereço</a>
+<br><br><br>
+<h2>Digite um texto para aumentar o campo:</h2>
+<form>
+	<input id="textoCrescente" type="text" name="campo" onkeypress="aumentar()" size="3">
+</form>
+</body>
+</html>
