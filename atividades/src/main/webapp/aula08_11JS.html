@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Aula de Javascript(08/11)</title>
+<script type="text/javascript">
+	function adicionarItem() {
+		//alert("Teste");
+		var campoTexto = document.getElementById("item");
+		var campoItens = document.getElementById("itens");
+		
+		var opcaoNova = document.createElement("option"); //na prática está criando a tag <option></option>.
+		
+		opcaoNova.text = campoTexto.value; //na prática está criando: <option>Texto do campoTexto</option>.
+		
+		campoItens.add(opcaoNova); //o comando 'add' adiciona ao campo itens do select uma nova opção digitada no campoTexto.
+	}
+	
+	function adicionarTexto() {
+		var campoAreaTexto = document.getElementById("areaTexto");
+		var campoItens = document.getElementById("itens");
+		
+		var posicaoSelecionada = campoItens.selectedIndex; //retorna a posição marcada durante o uso do select na página web.
+		
+		var novoTexto = campoItens[posicaoSelecionada].text;
+		
+		campoAreaTexto.value = campoAreaTexto.value + "\n" + novoTexto;
+	}
+</script>
+<script type="text/javascript">
+
+// cel[] 	--> vetor que retorna todas as células da tabela (tags <td> ou <th>).
+// rows[] 	--> vetor que retorna todas as linhas da tabela (tag <tr>).
+// caption	--> propriedade utilizada para nomear a tabela.
+// width	--> propriedade que se utiliza para determinar a largura da tabela.
+
+	function inserirRegistro() {
+		var campoNome = document.getElementById("inputNome").value;
+		var campoCPF = document.getElementById("RegraValida").value;
+		
+		var tabela = document.getElementById("registros");
+		
+		// Recuperar a quantidade de linhas da tabela
+		var linhasTotais = tabela.rows.length; // propriedade do vetor que traz a quantidade de linhas.
+		
+		// Adicionar uma linha no final da tabela - tag: <tr></tr>
+		var novaLinha = tabela.insertRow(linhasTotais);
+		
+		// Adicionar duas células na linha criada - tag: <tr><td></td><td></td></tr>
+		var novaCelulaNome = novaLinha.insertCell(0);
+		var novaCelulaCPF = novaLinha.insertCell(1);
+		
+		// Definir o conteúdo das células criadas - tag: <tr><td>nome</td>CPF<td></td></tr>
+		
+		novaCelulaNome.innerHTML = campoNome; // O innerHTML escreve dentro de uma tag HTML
+		novaCelulaCPF.innerHTML = campoCPF;
+	}
+	
+	function ValidaCPF() {    
+	    var RegraValida=document.getElementById("RegraValida").value; 
+	    var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;     
+	    
+	    if (cpfValido.test(RegraValida) == true)    { 
+	    alert("CPF Válido");
+
+	    } else {     
+	    alert("CPF Inválido");    
+	    }
+	}
+	
+	function fMasc(objeto, mascara) {
+		obj=objeto
+		masc=mascara
+		setTimeout("fMascEx()", 1)
+	}
+
+	function fMascEx() {
+		obj.value=masc(obj.value)
+	}
+
+	function mCPF(cpf) {
+		cpf=cpf.replace(/\D/g,"")
+		cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+		cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+		cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+		return cpf
+	}
+</script>
+</head>
+<body>
+
+<h2>Manipulação de Objetos DOM</h2>
+<form>
+	Digite algo: <input id="item" type="text"/>
+	<input type="button" value="Adicionar Item" onclick="adicionarItem()"><br><br>
+	<select id="itens" onchange="adicionarTexto()">
+	<!-- Aqui está sendo criada uma sequencia de tags <option> -->
+	</select>
+	<br><br>
+	<textarea id="areaTexto" rows="20" cols="30"></textarea>
+</form>
+<br><br>
+
+<h2>Cadastro e Validação de Dados de Registro</h2>
+	Nome: <input type="text" id="inputNome" placeholder="Nome">
+    CPF: <input type="text" id="RegraValida" placeholder="CPF" maxlength="14" value="" name="RegraValida"
+        onkeydown="javascript: fMasc( this, mCPF );">
+        <input type="submit" value="Validar" onclick="ValidaCPF();">
+        <button onclick="inserirRegistro()">Enviar</button><br><br>
+    		
+<table id="registros" border="2">
+<tr>
+	<th>Nome</th> <!-- Utiliza-se a tag <th> para formar um cabeçalho em negrito -->
+	<th>CPF</th>
+</tr>
+<tr>
+	<td>Maria Bonita</td> <!-- Não obrigatório, tão somente como referência -->
+	<td>123.456.789-10</td>
+</tr>
+</table>
+<!-- Caso queira criar várias colunas e linhas em uma tabela
+<tr>
+	<td>Texto</td>
+	<td>Outro texto</td>
+</tr>
+<tr>
+	<td>Texto</td>
+	<td>Outro texto</td>
+</tr>
+<tr>
+	<td>Texto</td>
+	<td>Outro texto</td>
+</tr>
+<tr>
+	<td>Texto</td>
+	<td>Outro texto</td>
+</tr>
+ -->
+ 
+</body>
+</html>
